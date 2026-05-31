@@ -1,6 +1,6 @@
 # Core
 pyspark>=4.0.0.dev0
-pandas>=3.0.0
+pandas>=2.2.0,<3.0.0
 numpy>=2.0.0
 pyarrow>=16.0.0
 requests==2.32.3

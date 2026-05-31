@@ -1,0 +1,41 @@
+project_name: f1_predictor
+season: dynamic          # "dynamic" = datetime.now().year  |  or set e.g. "2026"
+
+database:
+  url: sqlite:///data/f1_platform.db
+  echo_sql: false
+  pool_size: 5
+
+auth:
+  cookie_name: f1_auth_token
+  cookie_expiry_days: 30
+
+calendar:
+  cache_ttl_hours: 24
+  lock_buffer_minutes: 0    # 0 = lock exactly at FP1 start, no grace period
+
+paths:
+  bronze:   data/bronze/historical
+  silver:   data/silver/historical.parquet
+  gold:     data/gold/features.parquet
+  models:   models
+  outputs:  outputs
+  logs:     outputs/logs
+  backups:  outputs/backups
+
+features:
+  windows: [3, 5, 10]
+  min_history_races: 1
+
+model:
+  random_state: 42
+  test_fraction: 0.15
+  n_estimators: 300
+  max_depth: 5
+  learning_rate: 0.05
+
+simulation:
+  monte_carlo_runs: 1000
+
+reporting:
+  top_n_drivers: 10

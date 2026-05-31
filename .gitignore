@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Secrets — NEVER commit these
+.streamlit/secrets.toml
+
+# Data (large files — not for GitHub)
+data/bronze/
+data/silver/
+data/gold/
+data/cache/
+data/f1_platform.db
+
+# Models (large binary files)
+models/*.json
+
+# Outputs
+outputs/logs/
+outputs/backups/
+
+# MLflow
+mlruns/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
